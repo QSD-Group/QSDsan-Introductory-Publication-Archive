@@ -1,0 +1,33 @@
+[System]
+Name='Deficiency'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='BOD5toN'
+Range=[0 200]
+NumMFs=3
+MF1='L':'trapmf',[-7.145 -7.145 10 20]
+MF2='N':'trimf',[10 20 33.33]
+MF3='H':'trapmf',[20 33.33 201.3 209.3]
+
+[Output1]
+Name='NDefConditions'
+Range=[-0.2 1.2]
+NumMFs=3
+MF1='Low':'trimf',[-0.2 -2.776e-017 0.2]
+MF2='Medium':'trimf',[0.2 0.5 0.8]
+MF3='High':'trimf',[0.8 1 1.2]
+
+[Rules]
+3, 3 (1) : 1
+2, 1 (1) : 1
+1, 1 (1) : 1

@@ -1,0 +1,31 @@
+startindex=max(find(t <= starttime));
+stopindex=min(find(t >= stoptime));
+
+time=t(startindex:stopindex);
+SNO2sensorx=SNO2sensor(startindex:stopindex,:);
+
+figure(21);
+subplot(3,3,1);
+plot(time,SNO2sensorx(:,1));
+grid on;
+title('SNO2, true value');
+subplot(3,3,2);
+plot(time,SNO2sensorx(:,2));
+grid on;
+title('SNO2, delayed');
+subplot(3,3,3);
+plot(time,SNO2sensorx(:,3));
+grid on;
+title('SNO2, delayed & sampled');
+subplot(3,3,4);
+plot(time,SNO2sensorx(:,4));
+grid on;
+title('Noise on SNO2');
+subplot(3,3,5);
+plot(time,SNO2sensorx(:,5));
+grid on;
+title('SNO2, unlim measure');
+subplot(3,3,6);
+plot(time,SNO2sensorx(:,6));
+grid on;
+title('SNO2, lim measure');

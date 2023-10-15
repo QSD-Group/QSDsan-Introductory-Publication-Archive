@@ -1,0 +1,47 @@
+[System]
+Name='FtoMBulking_1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Ss'
+Range=[0 130]
+NumMFs=3
+MF1='L':'trapmf',[-4.645 -4.645 2 10]
+MF2='N':'trimf',[2 10 18]
+MF3='H':'trapmf',[10 18 131.6 143]
+
+[Input2]
+Name='SRT'
+Range=[0 20]
+NumMFs=5
+MF1='VL':'trapmf',[-7.2 -0.8 1 3]
+MF2='NORMAL':'trimf',[3 6 9]
+MF3='HIGH':'trimf',[6 9 12]
+MF4='LOW':'trimf',[0 3 6]
+MF5='VH':'trapmf',[9 12 20.29 23.4]
+
+[Output1]
+Name='FoamingConditions'
+Range=[-0.2 1.2]
+NumMFs=3
+MF1='Low':'trimf',[-0.2 0 0.2]
+MF2='Medium':'trimf',[0.2 0.5 0.8]
+MF3='High':'trimf',[0.8 1 1.2]
+
+[Rules]
+1 3, 3 (1) : 1
+1 2, 2 (1) : 1
+3 0, 1 (1) : 1
+1 5, 3 (1) : 1
+1 4, 1 (1) : 1
+1 1, 1 (1) : 1
+2 0, 1 (1) : 1

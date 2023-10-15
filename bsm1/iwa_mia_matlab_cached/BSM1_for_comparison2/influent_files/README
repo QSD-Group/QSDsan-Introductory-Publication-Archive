@@ -1,0 +1,13 @@
+In the new influent files the round off time values have been rounded off downwards, i.e. 13.97916667 (original) is changed to 13.97916666 (new). This is done in order to let matlab read the influent data files without using any interpolation at all. If the interpolate option in Matlab is turned off then Simulink will read the value of the latest available time. Since all timevalues in the data file that are not exact are rounded off downwards (as 1/96 is not exact) this will create a perfect zero-order sample and hold of the influent files (even if matlab needs data for time instants between the requested times).
+
+In the old files some time samples were rounded off downwards and some upwards (to the nearest neighbour) which creates problems for matlab.
+
+The matlabscript to create the mat.files for the new datafiles is convert.m
+
+However, due to effects of the lowpassfilter of the flow the effluent average flow will differ slightly depending on if interpolation is allowed or not. Allowing interpolation gets the result closer to the theoretical value (18061.332 m3/d for dryweather).
+
+990728, UJ
+
+All old versions of input data files have been removed. the new official noise file for sensors and actuators has been included.
+ 
+071129, UJ 

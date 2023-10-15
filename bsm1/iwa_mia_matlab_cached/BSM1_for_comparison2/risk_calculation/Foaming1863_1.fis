@@ -1,0 +1,47 @@
+[System]
+Name='Foaming1863_1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='FtoM'
+Range=[0 1.5]
+NumMFs=4
+MF1='L':'trapmf',[-0.0536 -0.05357 0.25 0.5]
+MF2='N':'trimf',[0.25 0.5 0.75]
+MF3='H':'trimf',[0.5 0.75 1]
+MF4='VH':'trapmf',[0.75 1 1.51 1.57]
+
+[Input2]
+Name='RBOMfraction'
+Range=[0 1.5]
+NumMFs=3
+MF1='NORMAL':'trimf',[0.15 0.25 0.35]
+MF2='HIGH':'trapmf',[0.3 0.45 1.55 1.56]
+MF3='LOW':'trapmf',[-0.08415 -0.02183 0.1 0.2]
+
+[Output1]
+Name='FoamingConditions'
+Range=[-0.2 1.2]
+NumMFs=3
+MF1='Low':'trimf',[-0.2 -2.776e-017 0.2]
+MF2='Medium':'trimf',[0.2 0.5 0.8]
+MF3='High':'trimf',[0.8 1 1.2]
+
+[Rules]
+4 2, 3 (1) : 1
+3 2, 2 (1) : 1
+3 1, 2 (1) : 1
+3 3, 1 (1) : 1
+2 0, 1 (1) : 1
+1 0, 1 (1) : 1
+4 3, 1 (1) : 1
+4 1, 2 (1) : 1

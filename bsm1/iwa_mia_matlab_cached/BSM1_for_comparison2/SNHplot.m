@@ -1,0 +1,52 @@
+startindex=max(find(t <= starttime));
+stopindex=min(find(t >= stoptime));
+
+time=t(startindex:stopindex);
+ASinputx=ASinput(startindex:stopindex,:);
+reac1x=reac1(startindex:stopindex,:);
+reac2x=reac2(startindex:stopindex,:);
+reac3x=reac3(startindex:stopindex,:);
+reac4x=reac4(startindex:stopindex,:);
+reac5x=reac5(startindex:stopindex,:);
+settlerx=settler(startindex:stopindex,:);
+inx=in(startindex:stopindex,:);
+
+figure(10);
+subplot(3,3,1);
+plot(time,reac1x(:,10));
+grid on;
+title('SNH, reactor 1');
+subplot(3,3,2);
+plot(time,reac2x(:,10));
+grid on;
+title('SNH, reactor 2');
+subplot(3,3,3);
+plot(time,reac3x(:,10));
+grid on;
+title('SNH, reactor 3');
+subplot(3,3,4);
+plot(time,reac4x(:,10));
+grid on;
+title('SNH, reactor 4');
+subplot(3,3,5);
+plot(time,reac5x(:,10));
+grid on;
+title('SNH, reactor 5');
+
+subplot(3,3,6);
+plot(time,(ASinputx(:,10)./ASinputx(:,15)));
+grid on;
+title('SNH, input to AS');
+
+subplot(3,3,7);
+plot(time,settlerx(:,10));
+grid on;
+title('SNH, underflow');
+subplot(3,3,8);
+plot(time,settlerx(:,26));
+grid on;
+title('SNH, effluent');
+subplot(3,3,9);
+plot(time,inx(:,10));
+grid on;
+title('SNH, influent');
